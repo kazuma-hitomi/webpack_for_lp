@@ -1,10 +1,10 @@
 {
-  "name": "webpack_for_lp",
+  "name": "webpack_for_simple_site",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "build": "webpack-dev-server --open --mode production",
+    "build": "webpack --mode production",
     "dev": "webpack-dev-server --open --mode development"
   },
   "author": "",

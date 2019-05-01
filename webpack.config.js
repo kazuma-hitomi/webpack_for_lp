@@ -3,13 +3,13 @@ const autoprefixer = require('autoprefixer');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
-const outputPath = path.resolve(__dirname, 'dist');
+const outputPath = path.resolve(__dirname, './dist');
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry: './src/js/main.js',
   output: {
-    filename: 'main.js',
     path: outputPath,
+    filename: '[name].js',
   },
   module: {
     rules: [
