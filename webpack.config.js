@@ -6,7 +6,11 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const outputPath = path.resolve(__dirname, './dist');
 
 module.exports = {
-  entry: './src/js/main.js',
+  devtool: 'eval-source-map',
+  externals: {
+    jquery: 'jQuery',
+  },
+  entry: ['@babel/polyfill', './src/js/main.js'],
   output: {
     path: outputPath,
     filename: '[name].js',
@@ -59,6 +63,18 @@ module.exports = {
         test: /\.html$/,
         loader: 'html-loader',
       },
+      {
+        test: /\.(jpg|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              path: outputPath,
+              name: './images/[name].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
   devServer: {
@@ -76,5 +92,4 @@ module.exports = {
       new OptimizeCSSAssetsPlugin({}),
     ],
   },
-  devtool: 'eval-source-map',
 };
