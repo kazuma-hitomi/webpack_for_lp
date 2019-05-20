@@ -1,5 +1,5 @@
-export default class {
-  static init() {
-    console.log('webpack simple site');
-  }
+const message = 'webpack simple site!';
+
+export default function hello() {
+  console.log(message);
 }

@@ -1,5 +1,5 @@
-import $ from 'jquery';
-// import Sub from './sub';
+// import $ from 'jquery';
+import hello from './sub';
 import '../scss/style.scss';
 
-// Sub.init();
+hello();

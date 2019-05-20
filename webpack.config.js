@@ -10,7 +10,7 @@ module.exports = {
   externals: {
     jquery: 'jQuery',
   },
-  entry: ['@babel/polyfill', './src/js/main.js'],
+  entry: './src/js/main.js',
   output: {
     path: outputPath,
     filename: '[name].js',
@@ -27,11 +27,6 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        options: {
-          presets: [
-            '@babel/preset-env',
-          ],
-        },
       },
       {
         test: /\.scss$/,
