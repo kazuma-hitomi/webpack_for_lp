@@ -1,11 +1,11 @@
 {
   "name": "webpack_for_simple_site",
   "private": true,
-  "description": "webpack_for_simple_site",
   "version": "1.0.0",
+  "description": "webpack_for_simple_site",
   "author": "",
   "keywords": [
-    "webpack, website"
+    "website"
   ],
   "license": "MIT",
   "repository": {
