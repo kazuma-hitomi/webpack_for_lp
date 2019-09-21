@@ -11,7 +11,9 @@ module.exports = {
   externals: {
     jquery: 'jQuery',
   },
-  entry: './src/js/main.js',
+  entry: {
+    main: './src/js/main.js',
+  },
   output: {
     path: outputPath,
     filename: '[name].js',
@@ -57,7 +59,12 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'html-loader',
+        use: {
+          loader: 'html-loader',
+          options: {
+            interpolate: true,
+          },
+        },
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
@@ -81,7 +88,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
-      favicon: './src/images/favicon.png',
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
