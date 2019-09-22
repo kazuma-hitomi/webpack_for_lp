@@ -13,6 +13,8 @@ module.exports = {
   },
   entry: {
     main: './src/js/main.js',
+    top: './src/js/top.js',
+    about: './src/js/about.js',
   },
   output: {
     path: outputPath,
@@ -88,9 +90,16 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
+      chunks: ['top'],
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/about.html',
+      filename: './about/index.html',
+      chunks: ['about'],
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css',
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
   ],
   optimization: {
