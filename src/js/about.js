@@ -1,3 +1,3 @@
 import '../scss/about.scss';
 
-console.log('about');
+console.log('this is about page.');

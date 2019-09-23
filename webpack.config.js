@@ -18,7 +18,7 @@ module.exports = {
   },
   output: {
     path: outputPath,
-    filename: '[name].js',
+    filename: './assets/js/[name].js',
   },
   module: {
     rules: [
@@ -90,16 +90,15 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
-      chunks: ['top'],
+      chunks: ['main', 'top'],
     }),
     new HtmlWebPackPlugin({
       template: './src/about.html',
       filename: './about/index.html',
-      chunks: ['about'],
+      chunks: ['main', 'about'],
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: './assets/css/[name].css',
     }),
   ],
   optimization: {
