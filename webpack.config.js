@@ -60,13 +60,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.html$/,
-        use: {
-          loader: 'html-loader',
-          options: {
-            interpolate: true,
-          },
-        },
+        test: /\.ejs$/,
+        use: [
+          'html-loader',
+          'ejs-html-loader',
+        ],
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
@@ -74,8 +72,10 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              path: outputPath,
-              name: './images/[name].[ext]',
+              name: '[name].[ext]',
+              outputPath: 'images/',
+              // eslint-disable-next-line no-shadow
+              publicPath: outputPath => `../../images/${outputPath}`,
             },
           },
         ],
@@ -88,13 +88,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: './src/index.ejs',
       filename: './index.html',
       chunks: ['main', 'top'],
     }),
     new HtmlWebPackPlugin({
-      template: './src/about.html',
-      filename: './about/index.html',
+      template: './src/about.ejs',
+      filename: './about.html',
       chunks: ['main', 'about'],
     }),
     new MiniCssExtractPlugin({
