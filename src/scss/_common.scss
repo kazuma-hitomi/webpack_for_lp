@@ -38,6 +38,7 @@ h3, h4 {
 
 p, li, dd, dt, th, td, button, figcaption,
 a, input, textarea, select {
+  line-height: $mediumLineHeight;
   font-size: $mediumFontSize;
 }
 
@@ -104,30 +105,6 @@ svg {
 }
 .disBlock {
   display: block!important;
-}
-.spDisBlock {
-  display: block!important;
-  @include mq(tabletVertical) {
-    display: none!important;
-  }
-}
-.pcDisBlock {
-  display: none!important;
-  @include mq(pc) {
-    display: block!important;
-  }
-}
-.spDisFlex {
-  display: flex!important;
-  @include mq(tabletVertical) {
-    display: none!important;
-  }
-}
-.pcDisFlex {
-  display: none!important;
-  @include mq(pc) {
-    display: flex!important;
-  }
 }
 
 .textAL {

@@ -13,8 +13,7 @@ module.exports = {
   },
   entry: {
     main: './src/js/main.js',
-    top: './src/js/top.js',
-    about: './src/js/about.js',
+    index: './src/js/index.js',
   },
   output: {
     path: outputPath,
@@ -60,11 +59,10 @@ module.exports = {
         ],
       },
       {
-        test: /\.ejs$/,
-        use: [
-          'html-loader',
-          'ejs-html-loader',
-        ],
+        test: /\.html$/,
+        use: {
+          loader: 'html-loader',
+        },
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
@@ -88,14 +86,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/index.ejs',
+      template: './src/index.html',
       filename: './index.html',
-      chunks: ['main', 'top'],
-    }),
-    new HtmlWebPackPlugin({
-      template: './src/about.ejs',
-      filename: './about.html',
-      chunks: ['main', 'about'],
+      chunks: ['main', 'index'],
     }),
     new MiniCssExtractPlugin({
       filename: './assets/css/[name].css',
