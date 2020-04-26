@@ -37,7 +37,6 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader',
           {
             loader: 'postcss-loader',
             options: {
@@ -45,17 +44,11 @@ module.exports = {
               plugins: [
                 autoprefixer({
                   grid: true,
-                  browsers: [
-                    '> 1%',
-                    'last 2 versions',
-                    'ie >= 11',
-                    'Android >= 4',
-                    'iOS >= 10',
-                  ],
                 }),
               ],
             },
           },
+          'sass-loader',
         ],
       },
       {
@@ -71,9 +64,8 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'images/',
-              // eslint-disable-next-line no-shadow
-              publicPath: outputPath => `../../images/${outputPath}`,
+              outputPath: 'assets/images/',
+              publicPath: outputPath => `../../assets/images/${outputPath}`, // eslint-disable-line
             },
           },
         ],
