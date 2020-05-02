@@ -10,7 +10,6 @@ html {
 }
 
 body {
-  overflow-x: hidden;
   font-size: $minimumFontSize;
   font-weight: normal;
   color: $defaultFontColor;
@@ -68,6 +67,7 @@ button {
 input {
   outline: none;
   display: block;
+  line-height: $clearLineHeight;
   border: none;
 }
 
@@ -117,18 +117,4 @@ svg {
   @include mq(tabletHorizontal) {
     display: block;
   }
-}
-
-.textAL {
-  text-align: left!important;
-}
-.textAC {
-  text-align: center!important;
-}
-.textAR {
-  text-align: right!important;
-}
-
-.fontWB {
-  font-weight: bold!important;
 }
