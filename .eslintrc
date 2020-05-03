@@ -1,10 +1,24 @@
 {
   "env": {
-    "browser": true
+    "browser": true,
+    "jquery" : true,
+    "es6": true
   },
-  "settings": {
-    "import/resolver": "webpack"
-  },
-  "extends": "airbnb-base",
-  "parser": "babel-eslint"
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": ["./*.js", "./src/js/*.js"],
+      "peerDependencies": false
+    }],
+    "prettier/prettier": [
+      "error", {
+        "singleQuote": true,
+        "semi": false
+      }
+    ]
+  }
 }

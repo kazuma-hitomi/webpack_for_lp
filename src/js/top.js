@@ -1,1 +1,1 @@
-import '../scss/top.scss';
+import '../scss/top.scss'

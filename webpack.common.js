@@ -1,16 +1,12 @@
-const path = require('path');
-const autoprefixer = require('autoprefixer');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const autoprefixer = require('autoprefixer')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 
-const outputPath = path.resolve(__dirname, './dist');
+const outputPath = path.resolve(__dirname, './dist')
 
 module.exports = {
-  devtool: 'eval-source-map',
-  externals: {
-    jquery: 'jQuery',
-  },
   entry: {
     main: './src/js/main.js',
     top: './src/js/top.js',
@@ -72,10 +68,6 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    contentBase: outputPath,
-    watchContentBase: true,
-  },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
@@ -87,8 +79,6 @@ module.exports = {
     }),
   ],
   optimization: {
-    minimizer: [
-      new OptimizeCSSAssetsPlugin({}),
-    ],
+    minimizer: [new OptimizeCSSAssetsPlugin()],
   },
-};
+}
